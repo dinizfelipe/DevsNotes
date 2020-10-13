@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { persistStore, persistRedux } from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 
@@ -11,7 +11,7 @@ const persistConfig = {
   stateReconciler: hardSet
 };
 
-const pReducer = persistRedux(persistConfig, rootReducer);
+const pReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(pReducer);
 export const persistor = persistStore(store);
