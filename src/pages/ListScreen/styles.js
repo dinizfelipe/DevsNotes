@@ -1,7 +1,17 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  flex: 1;
+  background-color: #333;
+  justify-content: center; 
+  align-items: center;
+`;
 
-export const Texto = styled.Text``;
+export const AddButton = styled.TouchableHighlight`
+  margin-right: 15px;
+`;
 
-export const Botao = styled.Button``;
+export const AddButtonImage = styled.Image`
+  width: 24px;
+  height: 24px;
+`;
