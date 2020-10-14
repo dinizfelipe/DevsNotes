@@ -20,7 +20,7 @@ export default () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: 'Suas notas',
+      title: 'Minhas anotações',
       headerRight: () => (
         <AddButton underlayColor='transparent' onPress={() => navigation.navigate('EditNote')}>
           <AddButtonImage source={require('../../assets/more.png')} />
