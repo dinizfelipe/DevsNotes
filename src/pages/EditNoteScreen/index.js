@@ -94,7 +94,7 @@ export default () => {
         onChangeText={e => setTitle(e)}
         placeholder="Título da anotação"
         placeholderTextColor="#CCC"
-        autoFocus={true}
+
       />
       <BodyInput
         value={body}
