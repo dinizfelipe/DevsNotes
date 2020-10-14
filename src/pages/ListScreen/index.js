@@ -7,9 +7,6 @@ import {
   AddButton,
   AddButtonImage,
   NotesList,
-  NoNotes,
-  NoNotesImage,
-  NoNotesText
 } from './styles';
 
 import NoteItem from '../../components/NoteItem';
@@ -17,7 +14,6 @@ import NoteItem from '../../components/NoteItem';
 export default () => {
   const navigation = useNavigation();
   const list = useSelector(state => state.notes.list)
-  // const list = [];
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -38,25 +34,17 @@ export default () => {
 
   return (
     <Container>
-      {list.length > 0 &&
-        <NotesList
-          data={list}
-          renderItem={({ item, index }) => (
-            <NoteItem
-              data={item}
-              index={index}
-              onPress={handleNotePress}
-            />
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      }
-      {list.length == 0 &&
-        <NoNotes>
-          <NoNotesImage source={require('../../assets/note.png')} />
-          <NoNotesText>Nenhuma anotação</NoNotesText>
-        </NoNotes>
-      }
+      <NotesList
+        data={list}
+        renderItem={({ item, index }) => (
+          <NoteItem
+            data={item}
+            index={index}
+            onPress={handleNotePress}
+          />
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </Container>
   )
 }
