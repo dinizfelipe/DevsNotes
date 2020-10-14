@@ -20,3 +20,19 @@ export const NotesList = styled.FlatList`
   flex: 1;
   width: 100%
 `;
+
+export const NoNotes = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NoNotesImage = styled.Image`
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+`;
+
+export const NoNotesText = styled.Text`
+  font-size: 20px;
+  color: #fff
+`;
