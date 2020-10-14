@@ -5,12 +5,19 @@ import { useSelector } from 'react-redux'
 import {
   Container,
   AddButton,
-  AddButtonImage
+  AddButtonImage,
+  NotesList,
+  NoNotes,
+  NoNotesImage,
+  NoNotesText
 } from './styles';
+
+import NoteItem from '../../components/NoteItem';
 
 export default () => {
   const navigation = useNavigation();
   const list = useSelector(state => state.notes.list)
+  // const list = [];
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -23,9 +30,33 @@ export default () => {
     });
   }, [])
 
+  const handleNotePress = (index) => {
+    navigation.navigate('EditNote', {
+      key: index
+    })
+  }
+
   return (
     <Container>
-
+      {list.length > 0 &&
+        <NotesList
+          data={list}
+          renderItem={({ item, index }) => (
+            <NoteItem
+              data={item}
+              index={index}
+              onPress={handleNotePress}
+            />
+          )}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      }
+      {list.length == 0 &&
+        <NoNotes>
+          <NoNotesImage source={require('../../assets/note.png')} />
+          <NoNotesText>Nenhuma anotação</NoNotesText>
+        </NoNotes>
+      }
     </Container>
   )
 }
